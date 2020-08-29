@@ -6,12 +6,7 @@ class InventoryAllocator:
         order = { 'apple': 2, 'banana': 5,'orange': 2 }
         inventories = [ { 'name': 'owd', 'inventory': { 'apple': 5, 'orange': 10 } }, { 'name': 'dm', 'inventory': { 'banana': 5, 'orange': 10 } } ]
 
-# owd : apple 2, orange 2 
-# dm : bannan 5 
-
         # inventories = [{ 'name': 'owd', 'inventory': { 'apple': 5 } }, { 'name': 'dm', 'inventory': { 'apple': 6 }}]
-
-        # Input: { apple: 1 }, [{ name: owd, inventory: { apple: 0 } }]
 
         self.get_allocation(order, inventories)
         
