@@ -24,10 +24,13 @@ class InventoryAllocator:
                 # print('Insufficient inventory, order requires {} more {}(s) than available.'.format(item_amount, item))
                 return []
 
-        # print(warehouse_order)
+        print(warehouse_order)
         # print(warehouse_inventories)
-        return_order.append(warehouse_order)
+        # return_order.append(warehouse_order)
+        for (k,v) in warehouse_order.items():
+            return_order.append({k:v})
 
+        print(return_order)
         return return_order
 
 # not enough inventory in 2nd warehouse 
