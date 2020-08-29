@@ -21,11 +21,11 @@ class InventoryAllocator:
                     warehouse['inventory'][item] -= amount_taken
 
             if item_amount > 0:
-                print('Insufficient inventory, order requires {} more {}(s) than available.'.format(item_amount, item))
+                # print('Insufficient inventory, order requires {} more {}(s) than available.'.format(item_amount, item))
                 return []
 
-        print(warehouse_order)
-        print(warehouse_inventories)
+        # print(warehouse_order)
+        # print(warehouse_inventories)
         return_order.append(warehouse_order)
 
         return return_order
