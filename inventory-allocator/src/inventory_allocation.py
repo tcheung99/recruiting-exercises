@@ -15,12 +15,14 @@ class InventoryAllocator:
 
         Returns:
             cheapest_shipment (list(dict)): list of warehouses and the items and corresponding units taken from that warehouse (corresponds to the cheapest shipment possible).
-        """
         
+        Note: # In python3.6+ dictionaries remember the order of insertion. The problem did not specify the order of the outputted list, but this detail means that the outputted list goes in order of cheapest cost to highest cost. 
+        """
+
         # Initialize the list of warehouses to ship from (the returned list)
         cheapest_shipment = list() 
 
-        # Initialize a dictionary to hold the necessary shipments from each warehouse 
+        # Initialize a dictionary to hold the necessary shipments from each warehouse. 
         warehouse_orders = dict()
         
         # Handle each item sequentially
