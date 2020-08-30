@@ -1,6 +1,8 @@
 # Assumptions: 
 # 1. Warehouses are pre-sorted based on cost. 
 # 2. Output list order is in the order of least cost (0-indexed) to highest cost (index -1)
+# 3. The input is formatted in a valid manner
+# 4. The orders is not empty 
 
 class InventoryAllocator:
     def get_allocation(self, ordered_items: dict(), warehouse_inventories: list(dict())) -> list(dict()):
@@ -12,10 +14,11 @@ class InventoryAllocator:
         warehouse_orders = dict()
         
         for item in ordered_items.keys():
+            # Get the number of units requested for the item
             item_amount = ordered_items.get(item)
 
             # Handle each item sequentially, and check each warehouse for inventory for that item
-            for warehouse in (warehouse_inventories): # This is a list 
+            for warehouse in (warehouse_inventories): 
                 if (item in warehouse['inventory']) and (item_amount > 0):
                     amount_taken = min(item_amount, warehouse['inventory'][item])
                     if not warehouse_orders.get(warehouse['name'], None):

@@ -106,6 +106,15 @@ class TestInventoryAllocator(unittest.TestCase):
         expected_output = []
         self.assertEqual(actual_output, expected_output)
 
+    def test_no_warehouses(self):
+        """
+        Case 12: Edge case where no warehouses available 
+        """
+        ordered_items, warehouse_inventories = { 'apple': 1 }, []
+        actual_output = InventoryAllocatorTest.get_allocation(ordered_items, warehouse_inventories)
+        expected_output = []
+        self.assertEqual(actual_output, expected_output)
+
 if __name__ == '__main__':
     InventoryAllocatorTest = InventoryAllocator()
     unittest.main()
