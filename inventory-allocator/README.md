@@ -1,3 +1,11 @@
+## Instructions for running tests (PLEASE READ) 
+
+Relevant files:
+
+- `inventory_allocation.py` which contains a class called InventoryAllocator with a `get_allocation()` method (which finds the cheapest shipment).
+- `unit_test.py` which contains 12 relevant tests that cover multiple item orders, multiple warehouse inventories, and other edge cases. 
+
+All code is written using Python3 and has been well-commented. To run tests on the code, simply run `python unit_test.py` on the command line. :) 
 
 
 ## Problem
@@ -34,8 +42,7 @@ You can use any language of your choice to write the solution (internally we use
 Input: `{ apple: 1 }, [{ name: owd, inventory: { apple: 1 } }]`  
 Output: `[{ owd: { apple: 1 } }]`
 
-### Order can be shipped using multiple warehouses
-
+### Order can be shipped using multiple warehous
 Input: `{ apple: 10 }, [{ name: owd, inventory: { apple: 5 } }, { name: dm, inventory: { apple: 5 }}]`  
 Output: `[{ dm: { apple: 5 }}, { owd: { apple: 5 } }]`
 
