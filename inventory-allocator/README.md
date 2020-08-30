@@ -2,8 +2,8 @@
 
 Relevant files:
 
-- `inventory_allocation.py` which contains a class called InventoryAllocator with a `get_allocation()` method (which finds the cheapest shipment).
-- `unit_test.py` which contains 12 relevant tests that cover multiple item orders, multiple warehouse inventories, and other edge cases. 
+- `src/inventory_allocation.py` which contains a class called InventoryAllocator with a `get_allocation()` method (which finds the cheapest shipment).
+- `src/unit_test.py` which contains 12 relevant tests that cover multiple item orders, multiple warehouse inventories, and other edge cases. 
 
 All code is written using Python3 and has been well-commented. To run tests on the code, simply run `python unit_test.py` on the command line. :) 
 
