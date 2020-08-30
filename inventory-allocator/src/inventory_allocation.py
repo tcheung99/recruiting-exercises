@@ -6,7 +6,17 @@
 
 class InventoryAllocator:
     def get_allocation(self, ordered_items: dict(), warehouse_inventories: list(dict())) -> list(dict()):
+        """
+        Description: Function that identifies the cheapest way to ship the order. 
 
+        Parameters:
+            ordered_items (dict()): map of the order's items and the corresponding quantity ordered.
+            warehouse_inventories (list(dict())): list of dictionaries which contain the warehouse name and inventory distribution the items.
+
+        Returns:
+            cheapest_shipment (list(dict)): list of warehouses and the items and corresponding units taken from that warehouse (corresponds to the cheapest shipment possible).
+        """
+        
         # Initialize the list of warehouses to ship from (the returned list)
         cheapest_shipment = list() 
 

@@ -3,6 +3,12 @@ import unittest
 from inventory_allocation import InventoryAllocator
 
 class TestInventoryAllocator(unittest.TestCase):
+    """
+    Description: Tests the inventory_allocation script and checks for correctness in the following areas:
+        - Perfect matches, sufficient inventory, and insufficient inventory cases for both single and multiple warehouse cases, in addition to single-item and multi-item orders. 
+        - Ordered items that are absent from warehouse inventories 
+        - No warehouses available
+    """
 
     # Tests with a single warehouse
     def test_perfect_match_single_warehouse(self):
