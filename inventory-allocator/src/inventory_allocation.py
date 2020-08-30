@@ -13,28 +13,36 @@ class InventoryAllocator:
         # Initialize a dictionary to hold the necessary shipments from each warehouse 
         warehouse_orders = dict()
         
+        # Handle each item sequentially
         for item in ordered_items.keys():
             # Get the number of units requested for the item
-            item_amount = ordered_items.get(item)
+            units_requested = ordered_items.get(item)
 
-            # Handle each item sequentially, and check each warehouse for inventory for that item
+            # Check each warehouse for inventory for that item
             for warehouse in (warehouse_inventories): 
-                if (item in warehouse['inventory']) and (item_amount > 0):
-                    amount_taken = min(item_amount, warehouse['inventory'][item])
+                # Check that the warehouse inventory contains the item, and that we are still looking for units of that item
+                if (item in warehouse['inventory']) and (units_requested > 0):
+                    inventory_available = warehouse['inventory'][item]
+                    # We only take the minimum between the number of units requested and the inventory available
+                    amount_taken = min(units_requested, inventory_available)
+
+                    # Track the amount of units that the warehouse contributed using the warehouse_orders dictionary
                     if not warehouse_orders.get(warehouse['name'], None):
                         warehouse_orders[warehouse['name']] = {item : amount_taken}
                     else:
                         warehouse_orders[warehouse['name']].update({item : amount_taken})
 
-                    item_amount -= warehouse['inventory'][item]
+                    # Subtract the amount taken from the amount of units requested, and the warehouse's inventory
+                    units_requested -= amount_taken
                     warehouse['inventory'][item] -= amount_taken
 
-            if item_amount > 0:
-                # print('Insufficient inventory, order requires {} more {}(s) than available.'.format(item_amount, item))
+            # If we have iterated through all of the warehouses but are still requesting units, we have insufficient inventory! 
+            if units_requested > 0:
                 return []
 
-        for (k,v) in warehouse_orders.items():
-            cheapest_shipment.append({k:v})
+        # Add the dictionary items into the list in the correct format (cannot simply append the warehouse_orders dict)
+        for (name,item_and_units_taken) in warehouse_orders.items():
+            cheapest_shipment.append({name:item_and_units_taken})
 
         return cheapest_shipment
 
